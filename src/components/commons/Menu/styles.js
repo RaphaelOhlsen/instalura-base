@@ -1,7 +1,7 @@
 import styled from 'styled-components';
 
 export const MenuWrapper = styled.nav`
-  font-family: 'Rubik', sans-serif;
+  /* font-family: 'Rubik', sans-serif; */
   display: flex;
   align-items:  center;
   justify-content: space-between;
@@ -11,28 +11,29 @@ export const MenuWrapper = styled.nav`
 `;
 
 MenuWrapper.LeftSide = styled.div`
-  padding: 0;
-  margin: 0;
+  /* padding: 0;
+  margin: 0; */
   order: 1;
 `;
 
 MenuWrapper.CentralSide = styled.ul`
-  padding: 0;
-  margin: 0;
+  /* padding: 0;
+  margin: 0; */
   order: 3;
   width: 100%;
   list-style: none;
   display: flex;
-  align-items: center;
+  /* align-items: center; */
   justify-content: space-between;
   margin-top: 17px;
+  /* margin-bottom: 0; */
   border-top: 1px solid #88989E;
   border-bottom: 1px solid #88989E;
   padding: 12px;
 
   a {
-    text-align: center;
-    display: block;
+    /* text-align: center; */
+    /* display: block; */
     text-decoration: none;
     color: #88989E;
     transition: 200ms ease-in-out;
@@ -43,8 +44,8 @@ MenuWrapper.CentralSide = styled.ul`
    }
 `;
 MenuWrapper.RightSide = styled.div`
-  padding: 0;
-  margin: 0;
+  /* padding: 0;
+  margin: 0; */
   display: flex;
   order: 2;
   justify-content: flex-end;
