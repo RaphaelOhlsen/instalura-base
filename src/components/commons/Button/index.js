@@ -1,6 +1,8 @@
 import styled, { css } from 'styled-components';
 import get from 'lodash/get';
 import { TextStyleVariantsMap } from '../../foundation/Text';
+import { breakpointsMedia } from '../../../theme/utils/breakpointsMedia';
+import propToStyle from '../../../theme/utils/propToStyle';
 
 const ButtonGhost = css`
   color: ${({ theme, variant }) => get(theme, `colors.${variant}.color`)
@@ -28,6 +30,16 @@ const Button = styled.button`
   &:hover, &:focus {
     opacity: .5;
   }
+  ${breakpointsMedia({
+    xs: css`
+     ${TextStyleVariantsMap.smallestException}
+    `,
+    md: css`
+      ${TextStyleVariantsMap.paragraph1}
+    `,
+  })}
+  ${propToStyle('margin')}
+  ${propToStyle('display')}
 `;
 
 export default Button;

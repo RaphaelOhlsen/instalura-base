@@ -1,4 +1,6 @@
-import styled from 'styled-components';
+import styled, { css } from 'styled-components';
+import { breakpointsMedia } from '../../../theme/utils/breakpointsMedia';
+import { TextStyleVariantsMap } from '../../foundation/Text';
 
 export const MenuWrapper = styled.nav`
   /* font-family: 'Rubik', sans-serif; */
@@ -6,14 +8,55 @@ export const MenuWrapper = styled.nav`
   align-items:  center;
   justify-content: space-between;
   flex-wrap: wrap;
-  margin-top: 28px;
-  padding: 0 28px;
+  margin-top: 18px;
+  padding-left: 28px;
+  padding-right: 28px;
+
+  ${breakpointsMedia({
+  md: css`
+      justify-content: flex-start;
+      margin-top: 32px;
+      margin-left: auto;
+      margin-right: auto;
+      width: 100%;
+      padding: 0 16px;
+      max-width: 768px;
+    `,
+  lg: css`
+      max-width: 1160px;
+    `,
+  xl: css`
+      max-width: 1222px;
+    `,
+})}
 `;
 
 MenuWrapper.LeftSide = styled.div`
   /* padding: 0;
   margin: 0; */
   order: 1;
+
+  ${breakpointsMedia({
+    md: css`
+          order: initial;
+          padding-right:40px;
+          margin-bottom: 5px;
+        `,
+  })}
+
+  > svg {
+      width: 96px;
+      height: 24px;
+
+      ${breakpointsMedia({
+        md: css`
+          width: 131px;
+          height: 32px;
+        `,
+      })}
+  }
+  
+  
 `;
 
 MenuWrapper.CentralSide = styled.ul`
@@ -30,6 +73,16 @@ MenuWrapper.CentralSide = styled.ul`
   border-top: 1px solid #88989E;
   border-bottom: 1px solid #88989E;
   padding: 12px;
+  ${breakpointsMedia({
+  md: css`
+      max-width: 332px;
+      padding: 0 12px;
+      flex: 1;
+      order: initial;
+      border: none;
+      margin: 0%;
+    `,
+})}
 
   a {
     /* text-align: center; */
@@ -37,6 +90,17 @@ MenuWrapper.CentralSide = styled.ul`
     text-decoration: none;
     color: #88989E;
     transition: 200ms ease-in-out;
+
+    ${breakpointsMedia({
+  xs: css`
+      ${TextStyleVariantsMap.smallestException}
+    `,
+    
+  md: css`
+      ${TextStyleVariantsMap.paragraph1}
+    `,
+  })}
+
     &:hover, &:focus {
       font-weight: 500;
       color: #070C0E;
@@ -47,6 +111,12 @@ MenuWrapper.RightSide = styled.div`
   /* padding: 0;
   margin: 0; */
   display: flex;
+  flex: 1;
   order: 2;
   justify-content: flex-end;
+  ${breakpointsMedia({
+    md: css`
+        order: initial;
+      `,
+  })}
 `;
