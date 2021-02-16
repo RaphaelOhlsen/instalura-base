@@ -1,4 +1,4 @@
-import { typographyVariants } from './typographyVariants';
+import typographyVariants from './typographyVariants';
 import breakpoints from './breakpoints';
 
 const colors = {
@@ -7,7 +7,7 @@ const colors = {
       color: '#FFFFFF',
     },
     main: {
-      color: '#F2F2F2'
+      color: '#F2F2F2',
     },
   },
   borders: {

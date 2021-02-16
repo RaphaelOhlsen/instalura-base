@@ -69,7 +69,7 @@ MenuWrapper.CentralSide = styled.ul`
   /* align-items: center; */
   justify-content: space-between;
   margin-top: 17px;
-  /* margin-bottom: 0; */
+  margin-bottom: 0;
   border-top: 1px solid #88989E;
   border-bottom: 1px solid #88989E;
   padding: 12px;

@@ -1,5 +1,6 @@
 import styled, { css } from 'styled-components';
 import { breakpointsMedia } from '../../../../theme/utils/breakpointsMedia';
+import propToStyle from '../../../../theme/utils/propToStyle';
 
 const Container = styled.div`
   width: 100%;
@@ -9,31 +10,34 @@ const Container = styled.div`
   margin-left: auto;
 
   ${breakpointsMedia({
-  sm: css`
-    max-width: 576px; 
-  `,
-  md: css`
-    max-width: 768px;
-    padding-right: 16px;
-    padding-left: 16px; 
-  `,
-  lg: css`
-    max-width: 1160px; 
-  `,
-  xl: css`
-    max-width: 1222px;
-  `,
-})}
+    sm: css`
+      max-width: 576px; 
+    `,
+    md: css`
+      max-width: 768px;
+      padding-right: 16px;
+      padding-left: 16px; 
+    `,
+    lg: css`
+      max-width: 1160px; 
+    `,
+    xl: css`
+      max-width: 1222px;
+    `,
+  })}
+  ${propToStyle('marginTop')}
 `;
 
 export const Grid = {
   Container,
+
   Row: styled.div`
     display: flex;
     flex-wrap: wrap;
     margin-right: -16px;
     margin-left: -16px;
   `,
+
   Col: styled.div`
     padding-right: 16px;
     padding-left: 16px;
@@ -127,9 +131,14 @@ export const Grid = {
           ? css`
             margin-left: ${(100 * offset. xl) / 12}%;
           `
-          : '',
-        
+          : '', 
       })
     }}
+
+    ${propToStyle('display')}
+    ${propToStyle('alignItems')}
+    ${propToStyle('justifyContent')}
+    ${propToStyle('flexDirection')}
+
   `,
 }
