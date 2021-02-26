@@ -36,6 +36,7 @@ export const Grid = {
     flex-wrap: wrap;
     margin-right: -16px;
     margin-left: -16px;
+    ${propToStyle('marginBottom')}
   `,
 
   Col: styled.div`

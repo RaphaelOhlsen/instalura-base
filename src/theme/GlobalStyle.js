@@ -19,12 +19,12 @@ const GlobalStyle = createGlobalStyle`
     color: rgb(136,146,176);
   }
   
-  /* #__next {
+  #__next {
     flex: 1;
     display: flex;
     flex-wrap: wrap;
     flex-direction: column;
-  } */
+  }
 `;
 
 export default GlobalStyle;

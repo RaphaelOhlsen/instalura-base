@@ -1,0 +1,16 @@
+HTML5 Outliner - extensao do Chrome para avaliar semantica
+Portifolio com viagem no tempo - artigo mario solto
+
+waybackmachine
+
+cssabovethefold - csstricks
+
+uplabs
+
+Livro css tricks de Lea Verou
+
+
+Refatoração: Aperfeiçoando o design de códigos existentes - Martin Fowler
+
+
+Video Building Resilient FrontEnd Architeture - Monica Lent

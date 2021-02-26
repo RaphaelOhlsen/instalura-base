@@ -5,7 +5,7 @@ import { TextStyleVariantsMap } from '../../foundation/Text';
 export const MenuWrapper = styled.nav`
   /* font-family: 'Rubik', sans-serif; */
   display: flex;
-  align-items:  center;
+  align-items: center;
   justify-content: space-between;
   flex-wrap: wrap;
   margin-top: 18px;
@@ -13,7 +13,7 @@ export const MenuWrapper = styled.nav`
   padding-right: 28px;
 
   ${breakpointsMedia({
-  md: css`
+    md: css`
       justify-content: flex-start;
       margin-top: 32px;
       margin-left: auto;
@@ -22,13 +22,13 @@ export const MenuWrapper = styled.nav`
       padding: 0 16px;
       max-width: 768px;
     `,
-  lg: css`
+    lg: css`
       max-width: 1160px;
     `,
-  xl: css`
+    xl: css`
       max-width: 1222px;
     `,
-})}
+  })}
 `;
 
 MenuWrapper.LeftSide = styled.div`
@@ -38,25 +38,23 @@ MenuWrapper.LeftSide = styled.div`
 
   ${breakpointsMedia({
     md: css`
-          order: initial;
-          padding-right:40px;
-          margin-bottom: 5px;
-        `,
+      order: initial;
+      padding-right: 40px;
+      margin-bottom: 5px;
+    `,
   })}
 
   > svg {
-      width: 96px;
-      height: 24px;
+    width: 96px;
+    height: 24px;
 
-      ${breakpointsMedia({
-        md: css`
-          width: 131px;
-          height: 32px;
-        `,
-      })}
+    ${breakpointsMedia({
+      md: css`
+        width: 131px;
+        height: 32px;
+      `,
+    })}
   }
-  
-  
 `;
 
 MenuWrapper.CentralSide = styled.ul`
@@ -70,11 +68,11 @@ MenuWrapper.CentralSide = styled.ul`
   justify-content: space-between;
   margin-top: 17px;
   margin-bottom: 0;
-  border-top: 1px solid #88989E;
-  border-bottom: 1px solid #88989E;
+  border-top: 1px solid #88989e;
+  border-bottom: 1px solid #88989e;
   padding: 12px;
   ${breakpointsMedia({
-  md: css`
+    md: css`
       max-width: 332px;
       padding: 0 12px;
       flex: 1;
@@ -82,30 +80,30 @@ MenuWrapper.CentralSide = styled.ul`
       border: none;
       margin: 0%;
     `,
-})}
+  })}
 
   a {
     /* text-align: center; */
     /* display: block; */
     text-decoration: none;
-    color: #88989E;
+    color: #88989e;
     transition: 200ms ease-in-out;
 
     ${breakpointsMedia({
-  xs: css`
-      ${TextStyleVariantsMap.smallestException}
-    `,
-    
-  md: css`
-      ${TextStyleVariantsMap.paragraph1}
-    `,
-  })}
+      xs: css`
+        ${TextStyleVariantsMap.smallestException}
+      `,
+
+      md: css`
+        ${TextStyleVariantsMap.paragraph1}
+      `,
+    })}
 
     &:hover, &:focus {
       font-weight: 500;
-      color: #070C0E;
+      color: #070c0e;
     }
-   }
+  }
 `;
 MenuWrapper.RightSide = styled.div`
   /* padding: 0;
@@ -116,7 +114,7 @@ MenuWrapper.RightSide = styled.div`
   justify-content: flex-end;
   ${breakpointsMedia({
     md: css`
-        order: initial;
-      `,
+      order: initial;
+    `,
   })}
 `;

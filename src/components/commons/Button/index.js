@@ -5,16 +5,15 @@ import { breakpointsMedia } from '../../../theme/utils/breakpointsMedia';
 import propToStyle from '../../../theme/utils/propToStyle';
 
 const ButtonGhost = css`
-  color: ${({ theme, variant }) => get(theme, `colors.${variant}.color`)
-  };
+  color: ${({ theme, variant }) => get(theme, `colors.${variant}.color`)};
   background-color: transparent;
 `;
 
 const ButtonDefault = css`
-  background-color: ${({ theme, variant }) => get(theme, `colors.${variant}.color`)
-  };
-  color: ${({ theme, variant }) => get(theme, `colors.${variant}.contrastText`)
-  };
+  background-color: ${({ theme, variant }) =>
+    get(theme, `colors.${variant}.color`)};
+  color: ${({ theme, variant }) =>
+    get(theme, `colors.${variant}.contrastText`)};
 `;
 
 const Button = styled.button`
@@ -26,13 +25,13 @@ const Button = styled.button`
   transition: opacity ${({ theme }) => theme.transition};
   border-radius: ${({ theme }) => theme.borderRadius};
   ${TextStyleVariantsMap.smallestException}
-  ${({ ghost }) => ghost ? ButtonGhost : ButtonDefault}
+  ${({ ghost }) => (ghost ? ButtonGhost : ButtonDefault)}
   &:hover, &:focus {
-    opacity: .5;
+    opacity: 0.5;
   }
   ${breakpointsMedia({
     xs: css`
-     ${TextStyleVariantsMap.smallestException}
+      ${TextStyleVariantsMap.smallestException}
     `,
     md: css`
       ${TextStyleVariantsMap.paragraph1}

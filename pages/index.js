@@ -1,23 +1,38 @@
-import React from 'react';
+/* eslint-disable react/jsx-props-no-spreading */
+/* eslint-disable react/prop-types */
+import React, { useState } from 'react';
+
 import Menu from '../src/components/commons/Menu';
 import Footer from '../src/components/commons/Footer';
 import Text from '../src/components/foundation/Text';
 import Button from '../src/components/commons/Button';
+
 import { Grid } from '../src/components/foundation/layout/Grid';
 import { Box } from '../src/components/foundation/layout/Box';
+import Modal from '../src/components/commons/Modal';
 
 export default function Home() {
+  const [isModalOpen, setModalState] = useState(false);
+
   return (
     <Box
-      flex='1'
-      display='flex'
-      flexWrap='wrap'
-      flexDirection='column'
-      justifyContent='space-between'
-      backgroundImage='url(/images/bubbles.svg)'
-      backgroundRepeat='no-repeat'
-      backgroundPosition='bottom right'
+      flex="1"
+      display="flex"
+      flexWrap="wrap"
+      flexDirection="column"
+      justifyContent="space-between"
+      backgroundImage="url(/images/bubbles.svg)"
+      backgroundRepeat="no-repeat"
+      backgroundPosition="bottom right"
     >
+      <Modal isOpen={isModalOpen} onClose={() => setModalState(false)}>
+        {(propsDoModal) => (
+          <Box backgroundColor="white" {...propsDoModal}>
+            <div>Nosso conteúdo</div>
+          </Box>
+        )}
+      </Modal>
+
       <Menu />
 
       <Grid.Container
@@ -30,15 +45,15 @@ export default function Home() {
           <Grid.Col
             value={{ xs: 12, md: 5 }}
             offset={{ xs: 0, md: 1 }}
-            display='flex'
-            alignItems='flex-start'
-            justifyContent='center'
-            flexDirection='column'
+            display="flex"
+            alignItems="flex-start"
+            justifyContent="center"
+            flexDirection="column"
           >
             <Text
-              variant='title'
-              tag='h1'
-              color='tertiary.main'
+              variant="title"
+              tag="h1"
+              color="tertiary.main"
               textAlign={{
                 xs: 'center',
                 md: 'left',
@@ -48,9 +63,9 @@ export default function Home() {
             </Text>
 
             <Text
-              variant='paragraph1'
-              tag='p'
-              color='tertiary.light'
+              variant="paragraph1"
+              tag="p"
+              color="tertiary.light"
               textAlign={{
                 xs: 'center',
                 md: 'left',
@@ -61,12 +76,13 @@ export default function Home() {
             </Text>
 
             <Button
+              variant="primary.main"
               margin={{
                 xs: 'auto',
                 md: 'initial',
               }}
-              display='block'
-              variant='primary.main'
+              display="block"
+              onClick={() => setModalState(!isModalOpen)}
             >
               Cadastrar
             </Button>
@@ -74,8 +90,8 @@ export default function Home() {
           <Grid.Col value={{ xs: 12, md: 6 }}>
             <img
               style={{ display: 'block', margin: 'auto' }}
-              src='https://bootcamp-alura-01-git-modulo01.omariosouto.vercel.app/images/phones.png'
-              alt='Imagem Aplicativo'
+              src="https://bootcamp-alura-01-git-modulo01.omariosouto.vercel.app/images/phones.png"
+              alt="Imagem Aplicativo"
             />
           </Grid.Col>
         </Grid.Row>
