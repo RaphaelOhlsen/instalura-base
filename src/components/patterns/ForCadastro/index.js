@@ -68,7 +68,7 @@ const FormContent = () => {
 };
 
 // eslint-disable-next-line react/prop-types
-const FormCadastro = ({ ...propsDoModal }) => (
+const FormCadastro = ({ onClose, propsDoModal }) => (
   <Grid.Row marginLeft={0} marginRight={0} flex={1} justifyContent="flex-end">
     <Grid.Col
       display="flex"
@@ -90,6 +90,22 @@ const FormCadastro = ({ ...propsDoModal }) => (
         // eslint-disable-next-line react/jsx-props-no-spreading
         {...propsDoModal}
       >
+        <propsDoModal.CloseButton />
+        <Box
+          position="absolute"
+          top={{
+            xs: '10px',
+            md: '10px',
+          }}
+          right={{
+            xs: '20px',
+            md: '10px',
+          }}
+          onClick={() => onClose()}
+          cursor="pointer"
+        >
+          <img src="/images/closeButton.svg" alt="botoa de fechar" />
+        </Box>
         <FormContent />
       </Box>
     </Grid.Col>
