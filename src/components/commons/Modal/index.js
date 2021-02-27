@@ -1,7 +1,14 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 import { motion } from 'framer-motion';
+import { createGlobalStyle } from 'styled-components';
 import { ModalWrapper } from './styles';
+
+const LockScroll = createGlobalStyle`
+  body {
+    overflow: hidden;
+  }
+`;
 
 const Modal = ({ isOpen, onClose, children }) => (
   <ModalWrapper
@@ -13,13 +20,14 @@ const Modal = ({ isOpen, onClose, children }) => (
       }
     }}
   >
+    {isOpen && <LockScroll />}
     <motion.div
       variants={{
         open: {
           x: 0,
         },
         closed: {
-          x: '-100%',
+          x: '100%',
         },
       }}
       animate={isOpen ? 'open' : 'closed'}

@@ -6,24 +6,18 @@ import propToStyle from '../../../theme/utils/propToStyle';
 import { breakpointsMedia } from '../../../theme/utils/breakpointsMedia';
 
 const paragraph1 = css`
-  ${({ theme }) => css`
-    font-size: ${({ theme }) => theme.typographyVariants.paragraph1.fontSize};
-    font-weight: ${({ theme }) =>
-      theme.typographyVariants.paragraph1.fontWeight};
-    line-height: ${({ theme }) =>
-      theme.typographyVariants.paragraph1.lineHeight};
-  `}
+  font-size: ${({ theme }) => theme.typographyVariants.paragraph1.fontSize};
+  font-weight: ${({ theme }) => theme.typographyVariants.paragraph1.fontWeight};
+  line-height: ${({ theme }) => theme.typographyVariants.paragraph1.lineHeight};
 `;
 
 const smallestException = css`
-  ${({ theme }) => css`
-    font-size: ${({ theme }) =>
-      theme.typographyVariants.smallestException.fontSize};
-    font-weight: ${({ theme }) =>
-      theme.typographyVariants.smallestException.fontWeight};
-    line-height: ${({ theme }) =>
-      theme.typographyVariants.smallestException.lineHeight};
-  `}
+  font-size: ${({ theme }) =>
+    theme.typographyVariants.smallestException.fontSize};
+  font-weight: ${({ theme }) =>
+    theme.typographyVariants.smallestException.fontWeight};
+  line-height: ${({ theme }) =>
+    theme.typographyVariants.smallestException.lineHeight};
 `;
 
 export const TextStyleVariantsMap = {
@@ -51,6 +45,8 @@ const TextBase = styled.span`
   ${(props) => TextStyleVariantsMap[props.variant]}
   color: ${({ theme, color }) => get(theme, `colors.${color}.color`)};
   ${propToStyle('textAlign')}
+  ${propToStyle('marginBottom')}
+  ${propToStyle('margin')}
 `;
 
 const Text = ({ tag, variant, children, ...props }) => (
@@ -62,6 +58,7 @@ const Text = ({ tag, variant, children, ...props }) => (
 Text.defaultProps = {
   tag: 'span',
   variant: 'paragraph1',
+  children: null,
 };
 
 Text.propTypes = {
@@ -76,8 +73,9 @@ Text.propTypes = {
     'li',
     'a',
     'span',
+    'input',
   ]),
-  children: PropTypes.node.isRequired,
+  children: PropTypes.node,
   variant: PropTypes.oneOf(['title', 'paragraph1', 'smallestException']),
 };
 
