@@ -24,11 +24,25 @@ const Button = styled.button`
   opacity: 1;
   transition: opacity ${({ theme }) => theme.transition};
   border-radius: ${({ theme }) => theme.borderRadius};
+
   ${TextStyleVariantsMap.smallestException}
+
   ${({ ghost }) => (ghost ? ButtonGhost : ButtonDefault)}
   &:hover, &:focus {
     opacity: 0.5;
   }
+
+  &:disabled {
+    cursor: not-allowed;
+    opacity: 0.2;
+  }
+
+  ${({ fullWidth }) =>
+    fullWidth &&
+    css`
+      width: 100%;
+    `}
+
   ${breakpointsMedia({
     xs: css`
       ${TextStyleVariantsMap.smallestException}
@@ -37,6 +51,7 @@ const Button = styled.button`
       ${TextStyleVariantsMap.paragraph1}
     `,
   })}
+
   ${propToStyle('margin')}
   ${propToStyle('display')}
 `;

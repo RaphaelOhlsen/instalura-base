@@ -6,6 +6,7 @@ import Menu from '../src/components/commons/Menu';
 import Footer from '../src/components/commons/Footer';
 import Text from '../src/components/foundation/Text';
 import Button from '../src/components/commons/Button';
+import FormCadastro from '../src/components/patterns/ForCadastro';
 
 import { Grid } from '../src/components/foundation/layout/Grid';
 import { Box } from '../src/components/foundation/layout/Box';
@@ -25,12 +26,8 @@ export default function Home() {
       backgroundRepeat="no-repeat"
       backgroundPosition="bottom right"
     >
-      <Modal isOpen={isModalOpen} onClose={() => setModalState(false)}>
-        {(propsDoModal) => (
-          <Box backgroundColor="white" {...propsDoModal}>
-            <div>Nosso conteúdo</div>
-          </Box>
-        )}
+      <Modal isOpen={isModalOpen} onClose={() => setModalState(true)}>
+        {(propsDoModal) => <FormCadastro propsDoModal={propsDoModal} />}
       </Modal>
 
       <Menu />
