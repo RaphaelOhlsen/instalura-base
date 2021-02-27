@@ -1,15 +1,8 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 import { motion } from 'framer-motion';
-import { createGlobalStyle } from 'styled-components';
 import { ModalWrapper } from './styles';
 import { Box } from '../../foundation/layout/Box';
-
-const LockScroll = createGlobalStyle`
-  body {
-    overflow: hidden;
-  }
-`;
 
 const Modal = ({ isOpen, onClose, children }) => {
   const CloseButton = () => (
@@ -39,7 +32,7 @@ const Modal = ({ isOpen, onClose, children }) => {
         }
       }}
     >
-      {isOpen && <LockScroll />}
+      {isOpen && <ModalWrapper.LockScroll />}
       <motion.div
         variants={{
           open: {

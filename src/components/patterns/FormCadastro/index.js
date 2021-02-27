@@ -68,7 +68,7 @@ const FormContent = () => {
 };
 
 // eslint-disable-next-line react/prop-types
-const FormCadastro = ({ onClose, propsDoModal }) => (
+const FormCadastro = ({ propsDoModal }) => (
   <Grid.Row marginLeft={0} marginRight={0} flex={1} justifyContent="flex-end">
     <Grid.Col
       display="flex"
@@ -91,7 +91,7 @@ const FormCadastro = ({ onClose, propsDoModal }) => (
         {...propsDoModal}
       >
         <propsDoModal.CloseButton />
-        <Box
+        {/* <Box
           position="absolute"
           top={{
             xs: '10px',
@@ -105,7 +105,7 @@ const FormCadastro = ({ onClose, propsDoModal }) => (
           cursor="pointer"
         >
           <img src="/images/closeButton.svg" alt="botoa de fechar" />
-        </Box>
+        </Box> */}
         <FormContent />
       </Box>
     </Grid.Col>

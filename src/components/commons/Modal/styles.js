@@ -1,4 +1,4 @@
-import styled, { css } from 'styled-components';
+import styled, { css, createGlobalStyle } from 'styled-components';
 
 export const ModalWrapper = styled.div`
   display: flex;
@@ -20,12 +20,20 @@ export const ModalWrapper = styled.div`
       return css`
         opacity: 1;
         pointer-events: all;
+        overflow: hidden;
       `;
     }
 
     return css`
       opacity: 0;
       pointer-events: none;
+      overflow: hidden;
     `;
   }}
+`;
+
+ModalWrapper.LockScroll = createGlobalStyle`
+  body {
+    overflow: hidden;
+  }
 `;
