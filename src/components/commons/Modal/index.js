@@ -9,12 +9,12 @@ const Modal = ({ isOpen, onClose, children }) => {
     <Box
       position="absolute"
       top={{
-        xs: '10px',
-        md: '10px',
+        xs: '30px',
+        md: '30px',
       }}
       right={{
-        xs: '20px',
-        md: '10px',
+        xs: '40px',
+        md: '30px',
       }}
       onClick={() => onClose()}
       cursor="pointer"
@@ -22,6 +22,7 @@ const Modal = ({ isOpen, onClose, children }) => {
       <img src="/images/closeButton.svg" alt="botoa de fechar" />
     </Box>
   );
+
   return (
     <ModalWrapper
       isOpen={isOpen}

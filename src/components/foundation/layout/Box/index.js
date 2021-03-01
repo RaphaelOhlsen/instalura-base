@@ -18,4 +18,6 @@ export const Box = styled.div`
   ${propToStyle('left')}
   ${propToStyle('right')}
   ${propToStyle('cursor')}
+  ${propToStyle('width')}
+  ${propToStyle('height')}
 `;

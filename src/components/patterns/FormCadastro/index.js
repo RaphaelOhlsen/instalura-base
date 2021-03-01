@@ -1,17 +1,38 @@
 import React, { useState } from 'react';
+import { Lottie } from '@crello/react-lottie';
+import errorAnimation from './animations/error.json';
+import successAnimation from './animations/success.json';
+import loadingAnimation from './animations/loading.json';
 import Button from '../../commons/Button';
 import Text from '../../foundation/Text';
 import TextField from '../../forms/TextField';
 import { Box } from '../../foundation/layout/Box';
 import { Grid } from '../../foundation/layout/Grid';
 
+const formStates = {
+  DEFAULT: 'DEFAULT',
+  LOADING: 'LOADING',
+  DONE: 'DONE',
+  ERROR: 'ERROR',
+};
+
 const FormContent = () => {
+  const [isFormSubmited, setIsFormSubmited] = useState(false);
+  const [submissionStatus, setSubmissionStatus] = useState(formStates.DEFAULT);
   const [userInfo, setUserInfo] = useState({
-    name: '',
-    email: '',
+    usuario: '',
+    nome: '',
   });
 
-  const isFormInvalid = userInfo.name.length === 0 || userInfo.email === 0;
+  const isFormInvalid =
+    userInfo.usuario.length === 0 || userInfo.nome.lenght === 0;
+
+  async function resetValues() {
+    await new Promise((resolve) => setTimeout(resolve, 5000));
+    setIsFormSubmited(false);
+    setSubmissionStatus(formStates.DEFAULT);
+    setUserInfo({ usuario: '', nome: '' });
+  }
 
   function handleChange(ev) {
     const fieldName = ev.target.getAttribute('name');
@@ -24,7 +45,33 @@ const FormContent = () => {
     <form
       onSubmit={(ev) => {
         ev.preventDefault();
-        setUserInfo({ name: '', email: '' });
+        setIsFormSubmited(true);
+        setSubmissionStatus(formStates.LOADING);
+        const userDTO = { username: userInfo.usuario, name: userInfo.nome };
+        fetch('https://instalura-api.vercel.app/api/users', {
+          method: 'POST',
+          headers: {
+            'Content-Type': 'application/json',
+          },
+          body: JSON.stringify(userDTO),
+        })
+          .then((respostaDoServidor) => {
+            if (respostaDoServidor.ok) {
+              return respostaDoServidor.json();
+            }
+
+            throw new Error('Não foi possível cadastrar o usuário agora :(');
+          })
+          .then((respostaConvertidaEmObjeto) => {
+            setSubmissionStatus(formStates.DONE);
+            resetValues();
+            console.log(respostaConvertidaEmObjeto);
+          })
+          .catch((error) => {
+            setSubmissionStatus(formStates.ERROR);
+            resetValues();
+            console.error(error);
+          });
       }}
     >
       <Text variant="title" tag="h1" color="tertiary.main">
@@ -41,17 +88,17 @@ const FormContent = () => {
       </Text>
       <div>
         <TextField
-          placeholder="Email"
-          name="email"
-          value={userInfo.email}
+          placeholder="Nome"
+          name="nome"
+          value={userInfo.nome}
           onChange={handleChange}
         />
       </div>
       <div>
         <TextField
           placeholder="Usuário"
-          name="name"
-          value={userInfo.name}
+          name="usuario"
+          value={userInfo.usuario}
           onChange={handleChange}
         />
       </div>
@@ -63,6 +110,40 @@ const FormContent = () => {
       >
         Cadastrar
       </Button>
+      <Box display="flex" justifyContent="center">
+        <Box width="150px" height="150px">
+          {/* {!isFormSubmited && submissionStatus === formStates.LOADING && (
+            <p>Teste</p>
+          )} */}
+          {isFormSubmited && submissionStatus === formStates.LOADING && (
+            <Lottie
+              config={{
+                animationData: loadingAnimation,
+                loop: false,
+                autoplay: true,
+              }}
+            />
+          )}
+          {isFormSubmited && submissionStatus === formStates.DONE && (
+            <Lottie
+              config={{
+                animationData: successAnimation,
+                loop: false,
+                autoplay: true,
+              }}
+            />
+          )}
+          {isFormSubmited && submissionStatus === formStates.ERROR && (
+            <Lottie
+              config={{
+                animationData: errorAnimation,
+                loop: false,
+                autoplay: true,
+              }}
+            />
+          )}
+        </Box>
+      </Box>
     </form>
   );
 };
@@ -91,21 +172,6 @@ const FormCadastro = ({ propsDoModal }) => (
         {...propsDoModal}
       >
         <propsDoModal.CloseButton />
-        {/* <Box
-          position="absolute"
-          top={{
-            xs: '10px',
-            md: '10px',
-          }}
-          right={{
-            xs: '20px',
-            md: '10px',
-          }}
-          onClick={() => onClose()}
-          cursor="pointer"
-        >
-          <img src="/images/closeButton.svg" alt="botoa de fechar" />
-        </Box> */}
         <FormContent />
       </Box>
     </Grid.Col>
