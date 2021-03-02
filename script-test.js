@@ -1,3 +1,4 @@
+/* eslint-disable no-console */
 const shell = require('shelljs');
 
 console.log('Script-Test');
