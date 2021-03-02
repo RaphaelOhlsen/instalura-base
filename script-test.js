@@ -1,3 +1,5 @@
+/* eslint-disable no-console */
+// eslint-disable-next-line import/no-extraneous-dependencies
 const shell = require('shelljs');
 
 console.log('Script-Test');

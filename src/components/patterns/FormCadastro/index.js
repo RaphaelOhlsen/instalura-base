@@ -65,11 +65,13 @@ const FormContent = () => {
           .then((respostaConvertidaEmObjeto) => {
             setSubmissionStatus(formStates.DONE);
             resetValues();
+            // eslint-disable-next-line no-console
             console.log(respostaConvertidaEmObjeto);
           })
           .catch((error) => {
             setSubmissionStatus(formStates.ERROR);
             resetValues();
+            // eslint-disable-next-line no-console
             console.error(error);
           });
       }}
