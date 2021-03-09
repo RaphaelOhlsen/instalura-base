@@ -19,7 +19,7 @@ const Modal = ({ isOpen, onClose, children }) => {
       onClick={() => onClose()}
       cursor="pointer"
     >
-      <img src="/images/closeButton.svg" alt="botoa de fechar" />
+      <img src="/images/closeButton.svg" alt="bot de fechar" />
     </Box>
   );
 
