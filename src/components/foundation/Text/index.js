@@ -4,6 +4,7 @@ import get from 'lodash/get';
 import PropTypes from 'prop-types';
 import propToStyle from '../../../theme/utils/propToStyle';
 import { breakpointsMedia } from '../../../theme/utils/breakpointsMedia';
+import Link from '../../commons/Link';
 
 const paragraph1 = css`
   font-size: ${({ theme }) => theme.typographyVariants.paragraph1.fontSize};
@@ -49,16 +50,26 @@ const TextBase = styled.span`
   ${propToStyle('margin')}
 `;
 
-const Text = ({ tag, variant, children, ...props }) => (
-  <TextBase as={tag} variant={variant} {...props}>
-    {children}
-  </TextBase>
-);
+const Text = ({ tag, variant, children, href, ...props }) => {
+  if (href) {
+    return (
+      <TextBase as={Link} href={href} variant={variant} {...props}>
+        {children}
+      </TextBase>
+    );
+  }
+  return (
+    <TextBase as={tag} variant={variant} {...props}>
+      {children}
+    </TextBase>
+  );
+};
 
 Text.defaultProps = {
   tag: 'span',
   variant: 'paragraph1',
   children: null,
+  href: null,
 };
 
 Text.propTypes = {
@@ -77,6 +88,7 @@ Text.propTypes = {
   ]),
   children: PropTypes.node,
   variant: PropTypes.oneOf(['title', 'paragraph1', 'smallestException']),
+  href: PropTypes.string,
 };
 
 export default Text;
