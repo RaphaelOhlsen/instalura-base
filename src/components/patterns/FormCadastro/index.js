@@ -154,7 +154,7 @@ const FormCadastro = ({ propsDoModal }) => (
   <Grid.Row marginLeft={0} marginRight={0} flex={1} justifyContent="flex-end">
     <Grid.Col
       display="flex"
-      paddingRight={{ md: '0' }}
+      padding={{ md: '0' }}
       flex={1}
       value={{ xs: 12, md: 5, lg: 4 }}
     >

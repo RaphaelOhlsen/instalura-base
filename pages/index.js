@@ -1,5 +1,6 @@
 /* eslint-disable react/jsx-props-no-spreading */
 /* eslint-disable react/prop-types */
+
 import React, { useState } from 'react';
 
 import Menu from '../src/components/commons/Menu';
@@ -30,7 +31,7 @@ export default function Home() {
         {(propsDoModal) => <FormCadastro propsDoModal={propsDoModal} />}
       </Modal>
 
-      <Menu />
+      <Menu onCadastrarClick={() => setModalState(true)} />
 
       <Grid.Container
         marginTop={{
