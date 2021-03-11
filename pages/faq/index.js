@@ -1,5 +1,6 @@
 import React from 'react';
+import FAQScreen from '../../src/components/screens/FAQScreen';
 
-const FAQPage = () => <div>Página FAQ</div>;
+const FAQPage = () => <FAQScreen />;
 
 export default FAQPage;
