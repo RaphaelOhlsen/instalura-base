@@ -36,10 +36,12 @@ export const Grid = {
     flex-wrap: wrap;
     margin-right: -16px;
     margin-left: -16px;
-    ${propToStyle('marginBottom')}
     ${propToStyle('flex')}
+    ${propToStyle('flexDirection')}
     ${propToStyle('marginLeft')}
     ${propToStyle('marginRight')}
+    ${propToStyle('marginTop')}
+    ${propToStyle('marginBottom')}
     ${propToStyle('justifyContent')}
   `,
 
@@ -141,6 +143,7 @@ export const Grid = {
     }}
 
     ${propToStyle('display')}
+    ${propToStyle('order')}
     ${propToStyle('alignItems')}
     ${propToStyle('justifyContent')}
     ${propToStyle('flexDirection')}
