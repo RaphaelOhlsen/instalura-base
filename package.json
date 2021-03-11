@@ -1,5 +1,5 @@
 {
-  "name": "with-styled-components",
+  "name": "instalura-base",
   "version": "1.0.0",
   "scripts": {
     "dev": "next",
@@ -7,7 +7,8 @@
     "export": "next build && next export",
     "start": "next start",
     "lint": "eslint --ignore-path .gitignore .",
-    "custom-script": "node ./script-test.js"
+    "custom-script": "node ./script-test.js",
+    "commit": "cz"
   },
   "dependencies": {
     "@crello/react-lottie": "^0.0.11",
@@ -24,6 +25,9 @@
     "styled-normalize": "^8.0.7"
   },
   "devDependencies": {
+    "@commitlint/cli": "^12.0.1",
+    "@commitlint/config-conventional": "^12.0.1",
+    "cz-conventional-changelog": "3.3.0",
     "eslint": "^7.20.0",
     "eslint-config-airbnb": "^18.2.1",
     "eslint-config-prettier": "^7.2.0",
@@ -34,5 +38,17 @@
     "eslint-plugin-react-hooks": "^4.2.0",
     "prettier": "^2.2.1"
   },
-  "license": "MIT"
+
+  "husky": {
+    "hooks": {
+      "pre-push": "yarn lint",
+      "commit-msg": "commitlint -E HUSKY_GIT_PARAMS"
+    }
+  },
+  "license": "MIT",
+  "config": {
+    "commitizen": {
+      "path": "./node_modules/cz-conventional-changelog"
+    }
+  }
 }
