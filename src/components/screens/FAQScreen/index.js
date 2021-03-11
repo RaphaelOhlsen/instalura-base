@@ -26,7 +26,7 @@ export default function FAQScreen({ faqCategories }) {
         <Grid.Row
           marginTop={{ xs: '32px', md: '100px' }}
           marginBottom={{ xs: '32px', md: '100px' }}
-          justifyContent="center"
+          // justifyContent="center"
         >
           <Grid.Col value={{ xs: 12, md: 12 }} flex={1}>
             <Text

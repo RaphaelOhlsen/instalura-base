@@ -87,7 +87,12 @@ Text.propTypes = {
     'input',
   ]),
   children: PropTypes.node,
-  variant: PropTypes.oneOf(['title', 'paragraph1', 'smallestException']),
+  variant: PropTypes.oneOf([
+    'title',
+    'paragraph1',
+    'subTitle',
+    'smallestException',
+  ]),
   href: PropTypes.string,
 };
 
