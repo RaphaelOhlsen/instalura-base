@@ -1,0 +1,2 @@
+USer-Agent: *
+Allow: /
