@@ -1,26 +1,17 @@
-import React, { useEffect, useState } from 'react';
+import React from 'react';
 import FAQScreen from '../../src/components/screens/FAQScreen';
 
-const FAQPage = ({ faqCategories }) => (
-  // const [faqCategories, setFaqCategories] = useState([]);
+export default function FAQPage(props) {
+  return <FAQScreen {...props} />;
+}
 
-  // useEffect(() => {
-  //   fetch('https://instalura-api.vercel.app/api/content/faq')
-  //     .then((serverResponse) => serverResponse.json())
-  //     .then((convertedResponse) => convertedResponse.data)
-  //     .then((response) => {
-  //       setFaqCategories(response);
-  //     });
-  // }, []);
-
-  <FAQScreen faqCategories={faqCategories} />
-);
 export async function getStaticProps() {
   const faqCategories = await fetch(
     'https://instalura-api.vercel.app/api/content/faq'
-  )
-    .then((serverResponse) => serverResponse.json())
-    .then((convertedResponse) => convertedResponse.data);
+  ).then(async (res) => {
+    const response = await res.json();
+    return response.data;
+  });
 
   return {
     props: {
@@ -28,5 +19,3 @@ export async function getStaticProps() {
     },
   };
 }
-
-export default FAQPage;
