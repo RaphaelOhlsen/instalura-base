@@ -1,38 +1,19 @@
 /* eslint-disable react/jsx-props-no-spreading */
 /* eslint-disable react/prop-types */
 
-import React, { useState } from 'react';
-
-import Menu from '../src/components/commons/Menu';
-import Footer from '../src/components/commons/Footer';
+import React, { useContext } from 'react';
 import Text from '../src/components/foundation/Text';
 import Button from '../src/components/commons/Button';
-import FormCadastro from '../src/components/patterns/FormCadastro';
-
 import { Grid } from '../src/components/foundation/layout/Grid';
 import { Box } from '../src/components/foundation/layout/Box';
-import Modal from '../src/components/commons/Modal';
+import WebSitePageWrapper, {
+  WebsitePageContext,
+} from '../src/components/wrappers/WebsitePage';
 
-export default function Home() {
-  const [isModalOpen, setModalState] = useState(false);
-
+function HomeScreen() {
+  const websitePageContext = useContext(WebsitePageContext);
   return (
-    <Box
-      flex="1"
-      display="flex"
-      flexWrap="wrap"
-      flexDirection="column"
-      justifyContent="space-between"
-      backgroundImage="url(/images/bubbles.svg)"
-      backgroundRepeat="no-repeat"
-      backgroundPosition="bottom right"
-    >
-      <Modal isOpen={isModalOpen} onClose={() => setModalState(false)}>
-        {(propsDoModal) => <FormCadastro propsDoModal={propsDoModal} />}
-      </Modal>
-
-      <Menu onCadastrarClick={() => setModalState(true)} />
-
+    <Box display="flex" flex="1" flexDirection="column">
       <Grid.Container
         marginTop={{
           xs: '32px',
@@ -80,7 +61,7 @@ export default function Home() {
                 md: 'initial',
               }}
               display="block"
-              onClick={() => setModalState(!isModalOpen)}
+              onClick={() => websitePageContext.toggleModalCadastro()}
             >
               Cadastrar
             </Button>
@@ -94,8 +75,26 @@ export default function Home() {
           </Grid.Col>
         </Grid.Row>
       </Grid.Container>
-
-      <Footer />
     </Box>
+  );
+}
+
+export default function Home() {
+  return (
+    <WebSitePageWrapper
+      seoProps={{
+        headTitle: 'Home',
+      }}
+      pageBoxProps={{
+        backgroungImage: 'url(/images/bubbles.svg)',
+        backgroundRepeat: 'no-repeat',
+        backgroundPosition: 'bottom right',
+      }}
+      menuProps={{
+        display: false,
+      }}
+    >
+      <HomeScreen />
+    </WebSitePageWrapper>
   );
 }
