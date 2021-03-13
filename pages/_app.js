@@ -5,7 +5,6 @@ import { ThemeProvider } from 'styled-components';
 import Head from 'next/head';
 import theme from '../src/theme';
 import GlobalStyle from '../src/theme/GlobalStyle';
-import SEO from '../src/components/commons/SEO';
 
 export default function App({ Component, pageProps }) {
   return (
@@ -17,7 +16,6 @@ export default function App({ Component, pageProps }) {
           rel="stylesheet"
         />
       </Head>
-      <SEO headTitle="Home" />
 
       <ThemeProvider theme={theme}>
         <GlobalStyle />
