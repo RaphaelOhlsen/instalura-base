@@ -6,9 +6,8 @@ import Text from '../src/components/foundation/Text';
 import Button from '../src/components/commons/Button';
 import { Grid } from '../src/components/foundation/layout/Grid';
 import { Box } from '../src/components/foundation/layout/Box';
-import WebSitePageWrapper, {
-  WebsitePageContext,
-} from '../src/components/wrappers/WebsitePage';
+import { WebsitePageContext } from '../src/components/wrappers/WebsitePage';
+import websitePageHOC from '../src/components/wrappers/WebsitePage/hoc';
 
 function HomeScreen() {
   const websitePageContext = useContext(WebsitePageContext);
@@ -79,22 +78,18 @@ function HomeScreen() {
   );
 }
 
-export default function Home() {
-  return (
-    <WebSitePageWrapper
-      seoProps={{
-        headTitle: 'Home',
-      }}
-      pageBoxProps={{
-        backgroungImage: 'url(/images/bubbles.svg)',
-        backgroundRepeat: 'no-repeat',
-        backgroundPosition: 'bottom right',
-      }}
-      menuProps={{
-        display: false,
-      }}
-    >
-      <HomeScreen />
-    </WebSitePageWrapper>
-  );
-}
+export default websitePageHOC(HomeScreen, {
+  pageWrapperProps: {
+    seoProps: {
+      headTitle: 'Home',
+    },
+    pageBoxProps: {
+      backgroungImage: 'url(/images/bubbles.svg)',
+      backgroundRepeat: 'no-repeat',
+      backgroundPosition: 'bottom right',
+    },
+    menuProps: {
+      display: true,
+    },
+  },
+});
