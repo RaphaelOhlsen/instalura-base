@@ -7,3 +7,5 @@ async function something() {
 }
 
 something();
+
+console.log('teste');
