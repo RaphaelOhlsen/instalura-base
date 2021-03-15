@@ -93,3 +93,5 @@ export async function getStaticPaths() {
     fallback: false,
   };
 }
+
+FAQInternalScreen.propTypes = FAQQuestionScreen.propTypes;
