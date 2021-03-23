@@ -25,8 +25,7 @@ const FormContent = () => {
     nome: '',
   });
 
-  const isFormInvalid =
-    userInfo.usuario.length === 0 || userInfo.nome.lenght === 0;
+  const isFormInvalid = userInfo.usuario.length === 0 || userInfo.nome.lenght === 0;
 
   async function resetValues() {
     await new Promise((resolve) => setTimeout(resolve, 5000));

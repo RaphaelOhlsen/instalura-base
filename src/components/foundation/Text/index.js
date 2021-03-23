@@ -13,12 +13,9 @@ const paragraph1 = css`
 `;
 
 const smallestException = css`
-  font-size: ${({ theme }) =>
-    theme.typographyVariants.smallestException.fontSize};
-  font-weight: ${({ theme }) =>
-    theme.typographyVariants.smallestException.fontWeight};
-  line-height: ${({ theme }) =>
-    theme.typographyVariants.smallestException.lineHeight};
+  font-size: ${({ theme }) => theme.typographyVariants.smallestException.fontSize};
+  font-weight: ${({ theme }) => theme.typographyVariants.smallestException.fontWeight};
+  line-height: ${({ theme }) => theme.typographyVariants.smallestException.lineHeight};
 `;
 
 export const TextStyleVariantsMap = {
@@ -31,14 +28,14 @@ export const TextStyleVariantsMap = {
       line-height: ${theme.typographyVariants.titleXS.lineHeight};
     `}
     ${breakpointsMedia({
-      md: css`
+    md: css`
         ${({ theme }) => css`
           font-size: ${theme.typographyVariants.title.fontSize};
           font-weight: ${theme.typographyVariants.title.fontWeight};
           line-height: ${theme.typographyVariants.title.lineHeight};
         `}
       `,
-    })}
+  })}
   `,
 };
 
@@ -51,7 +48,9 @@ const TextBase = styled.span`
   ${propToStyle('display')}
 `;
 
-const Text = ({ tag, variant, children, href, ...props }) => {
+const Text = ({
+  tag, variant, children, href, ...props
+}) => {
   if (href) {
     return (
       <TextBase as={Link} href={href} variant={variant} {...props}>

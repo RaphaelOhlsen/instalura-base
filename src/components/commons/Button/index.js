@@ -13,10 +13,8 @@ const ButtonGhost = css`
 `;
 
 const ButtonDefault = css`
-  background-color: ${({ theme, variant }) =>
-    get(theme, `colors.${variant}.color`)};
-  color: ${({ theme, variant }) =>
-    get(theme, `colors.${variant}.contrastText`)};
+  background-color: ${({ theme, variant }) => get(theme, `colors.${variant}.color`)};
+  color: ${({ theme, variant }) => get(theme, `colors.${variant}.contrastText`)};
 `;
 
 const ButtonWrapper = styled.button`
@@ -40,9 +38,8 @@ const ButtonWrapper = styled.button`
     opacity: 0.2;
   }
 
-  ${({ fullWidth }) =>
-    fullWidth &&
-    css`
+  ${({ fullWidth }) => fullWidth
+    && css`
       width: 100%;
     `}
 

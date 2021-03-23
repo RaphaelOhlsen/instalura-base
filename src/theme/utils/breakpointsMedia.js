@@ -9,6 +9,6 @@ export function breakpointsMedia(cssByBreakpoints) {
       @media screen and (min-width: ${breakpoints[breakpointName]}px) {
         ${cssByBreakpoints[breakpointName]}
       }
-    `
+    `,
   );
 }

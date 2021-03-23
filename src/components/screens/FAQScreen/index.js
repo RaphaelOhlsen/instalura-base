@@ -25,8 +25,8 @@ export default function FAQScreen({ faqCategories }) {
           </Grid.Col>
         </Grid.Row>
         <Grid.Row alignItems="flex-start" justifyContent="center" flex="1">
-          {faqCategories &&
-            faqCategories.map((category) => (
+          {faqCategories
+            && faqCategories.map((category) => (
               <Grid.Col value={{ xs: 12, md: 3 }} flex={1} key={category.title}>
                 <Box width="100%">
                   <Text
@@ -70,8 +70,8 @@ FAQScreen.propTypes = {
           title: PropTypes.string,
           slug: PropTypes.string,
           description: PropTypes.string,
-        })
+        }),
       ),
-    })
+    }),
   ).isRequired,
 };

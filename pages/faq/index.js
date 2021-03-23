@@ -13,12 +13,17 @@ export default websitePageHOC(FAQPage, {
     seoProps: {
       headTitle: 'Perguntas Frequentes',
     },
+    pageBoxProps: {
+      backgroundImage: 'url(/images/bubbles.svg)',
+      backgroundRepeat: 'no-repeat',
+      backgroundPosition: 'bottom right',
+    },
   },
 });
 
 export async function getStaticProps() {
   const faqCategories = await fetch(
-    'https://instalura-api.vercel.app/api/content/faq'
+    'https://instalura-api.vercel.app/api/content/faq',
   ).then(async (res) => {
     const response = await res.json();
     return response.data;
