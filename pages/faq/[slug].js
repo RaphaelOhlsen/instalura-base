@@ -6,7 +6,15 @@ function FAQInternalScreen({ category, question }) {
   return <FAQQuestionScreen question={question} category={category} />;
 }
 
-export default websitePageHOC(FAQInternalScreen);
+export default websitePageHOC(FAQInternalScreen, {
+  pageWrapperProps: {
+    pageBoxProps: {
+      backgroundImage: 'url(/images/bubbles.svg)',
+      backgroundRepeat: 'no-repeat',
+      backgroundPosition: 'bottom right',
+    },
+  },
+});
 
 export async function getStaticProps({ params }) {
   const faqCategories = await fetch(

@@ -20,7 +20,13 @@ Input.defaultProps = {
   variant: 'paragraph1',
 };
 
-export default function TextField({ placeholder, name, onChange, value }) {
+export default function TextField({
+  placeholder,
+  name,
+  onChange,
+  value,
+  ...props
+}) {
   return (
     <InputWrapper>
       <Input
@@ -29,6 +35,7 @@ export default function TextField({ placeholder, name, onChange, value }) {
         name={name}
         onChange={onChange}
         value={value}
+        {...props}
       />
     </InputWrapper>
   );

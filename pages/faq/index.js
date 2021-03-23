@@ -13,6 +13,11 @@ export default websitePageHOC(FAQPage, {
     seoProps: {
       headTitle: 'Perguntas Frequentes',
     },
+    pageBoxProps: {
+      backgroundImage: 'url(/images/bubbles.svg)',
+      backgroundRepeat: 'no-repeat',
+      backgroundPosition: 'bottom right',
+    },
   },
 });
 

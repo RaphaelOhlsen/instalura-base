@@ -18,7 +18,7 @@ export default function WebSitePageWrapper({
   menuProps,
 }) {
   const [isModalOpen, setModalState] = useState(false);
-
+  console.log(pageBoxProps);
   return (
     <WebsitePageContext.Provider
       value={{
