@@ -49,11 +49,11 @@ MenuWrapper.LeftSide = styled.div`
     height: 24px;
 
     ${breakpointsMedia({
-      md: css`
+    md: css`
         width: 131px;
         height: 32px;
       `,
-    })}
+  })}
   }
 `;
 
@@ -90,14 +90,14 @@ MenuWrapper.CentralSide = styled.ul`
     transition: 200ms ease-in-out;
 
     ${breakpointsMedia({
-      xs: css`
+    xs: css`
         ${TextStyleVariantsMap.smallestException}
       `,
 
-      md: css`
+    md: css`
         ${TextStyleVariantsMap.paragraph1}
       `,
-    })}
+  })}
 
     &:hover, &:focus {
       font-weight: 500;

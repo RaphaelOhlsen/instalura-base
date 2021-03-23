@@ -6,7 +6,7 @@ import WebsiteGlobalProvider from '../provider';
 
 export default function websitePageHOC(
   PageComponent,
-  { pageWrapperProps } = { pageWrapperProps: {} }
+  { pageWrapperProps } = { pageWrapperProps: {} },
 ) {
   return (props) => (
     <WebsiteGlobalProvider>

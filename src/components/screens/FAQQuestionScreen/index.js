@@ -83,7 +83,7 @@ FAQQuestionScreen.propTypes = {
     questions: PropTypes.arrayOf(
       PropTypes.shape({
         title: PropTypes.string,
-      })
+      }),
     ),
   }).isRequired,
   question: PropTypes.shape({

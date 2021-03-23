@@ -18,7 +18,7 @@ export default websitePageHOC(FAQInternalScreen, {
 
 export async function getStaticProps({ params }) {
   const faqCategories = await fetch(
-    'https://instalura-api.vercel.app/api/content/faq'
+    'https://instalura-api.vercel.app/api/content/faq',
   ).then(async (serverRes) => {
     const res = await serverRes.json();
     return res.data;
@@ -42,7 +42,7 @@ export async function getStaticProps({ params }) {
       }
       return acc;
     },
-    { category: {}, question: {} }
+    { category: {}, question: {} },
   );
   return {
     props: {
@@ -75,7 +75,7 @@ export async function getStaticProps({ params }) {
 
 export async function getStaticPaths() {
   const faqCategories = await fetch(
-    'https://instalura-api.vercel.app/api/content/faq'
+    'https://instalura-api.vercel.app/api/content/faq',
   ).then(async (serverRes) => {
     const res = await serverRes.json();
     return res.data;
@@ -83,13 +83,13 @@ export async function getStaticPaths() {
 
   const slugsArray = faqCategories.reduce((acc, faqCategory) => {
     const questionsPaths = faqCategory.questions.map(
-      (question) => question.slug
+      (question) => question.slug,
     );
     return [...acc, ...questionsPaths];
   }, []);
 
   const filterSlugsArray = slugsArray.filter(
-    (slug, index) => slugsArray.indexOf(slug) === index
+    (slug, index) => slugsArray.indexOf(slug) === index,
   );
 
   const paths = filterSlugsArray.map((slug) => ({

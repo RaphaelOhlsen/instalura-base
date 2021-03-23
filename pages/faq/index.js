@@ -23,7 +23,7 @@ export default websitePageHOC(FAQPage, {
 
 export async function getStaticProps() {
   const faqCategories = await fetch(
-    'https://instalura-api.vercel.app/api/content/faq'
+    'https://instalura-api.vercel.app/api/content/faq',
   ).then(async (res) => {
     const response = await res.json();
     return response.data;
