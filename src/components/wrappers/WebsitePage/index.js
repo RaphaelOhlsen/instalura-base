@@ -18,8 +18,6 @@ export default function WebSitePageWrapper({
   menuProps,
 }) {
   const [isModalOpen, setModalState] = useState(false);
-  // eslint-disable-next-line no-console
-  console.log(pageBoxProps);
   return (
     <WebsitePageContext.Provider
       value={{
