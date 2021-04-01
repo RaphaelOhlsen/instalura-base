@@ -20,8 +20,10 @@ async function HttpClient(url, { headers, body, ...options }) {
 }
 
 const BASE_URL = isStagingEnv
+// Back-end de DEV
   ? 'https://instalura-api-git-master-omariosouto.vercel.app'
-  : 'https://inslalura-api-omariosouto.vercel.app';
+// Back-end de PROD
+  : 'https://instalura-api-omariosouto.vercel.app';
 
 export const loginService = {
   async login(
