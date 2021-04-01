@@ -1,3 +1,6 @@
+import { setCookie, destroyCookie } from 'nookies';
+import { isStagingEnv } from '../../infra/env/isStagingEnv';
+
 async function HttpClient(url, { headers, body, ...options }) {
   return fetch(url, {
     headers: {
@@ -16,20 +19,40 @@ async function HttpClient(url, { headers, body, ...options }) {
     });
 }
 
+const BASE_URL = isStagingEnv
+  ? 'https://instalura-api-git-master-omariosouto.vercel.app'
+  : 'https://inslalura-api-omariosouto.vercel.app';
+
 export const loginService = {
-  async login({ username, password }) {
-    return HttpClient('https://instalura-api.omariosouto.vercel.app/api/login', {
+  async login(
+    { username, password },
+    setCookieModule = setCookie,
+    HttpClientModule = HttpClient,
+  ) {
+    return HttpClientModule(`${BASE_URL}/api/login`, {
       method: 'POST',
       body: {
-        username, // 'omariosouto'
-        password, // 'senhasegura'
+        username,
+        password,
       },
     })
       .then((respostaConvertida) => {
-        // Salvar o Token
-        // Escrever os testes
-        console.log(respostaConvertida);
-        return respostaConvertida;
+        const { token } = respostaConvertida.data;
+        const hasToken = token;
+        if (!hasToken) {
+          throw new Error('Failed to login');
+        }
+        const DAY_IN_SECONDES = 86400;
+        setCookieModule(null, 'APP_TOKEN', token, {
+          path: '/',
+          maxAge: DAY_IN_SECONDES * 7,
+        });
+        return {
+          token,
+        };
       });
+  },
+  async logout(destroyCookieModule = destroyCookie) {
+    destroyCookieModule(null, 'APP_TOKEN');
   },
 };
