@@ -1,5 +1,5 @@
 import { css } from 'styled-components';
-import { breakpointsMedia } from './breakpointsMedia';
+import { breakpointsMedia } from '../breakpointsMedia';
 
 export default function propToStyle(propName) {
   return (props) => {
@@ -28,7 +28,7 @@ export default function propToStyle(propName) {
     }
 
     return {
-      [propName]: props[propName],
+      [propName]: propValue,
     };
   };
 }
