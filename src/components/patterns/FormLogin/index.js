@@ -1,8 +1,8 @@
 /* eslint-disable no-console */
 import React from 'react';
-import PropTypes from 'prop-types';
 import { useRouter } from 'next/router';
 import * as yup from 'yup';
+import PropTypes from 'prop-types';
 import Button from '../../commons/Button';
 import TextField from '../../forms/TextField';
 import { useForm } from '../../../infra/hooks/useForm';
@@ -54,9 +54,9 @@ export default function LoginForm({ onSubmit }) {
         placeholder="Usuário"
         name="usuario"
         value={form.values.usuario}
-        error={form.errors.usuario}
-        isTouched={form.touchedFields.usuario}
         onChange={form.handleChange}
+        isTouched={form.touchedFields.usuario}
+        error={form.errors.usuario}
         onBlur={form.handleBlur}
       />
       <TextField
@@ -64,9 +64,9 @@ export default function LoginForm({ onSubmit }) {
         name="senha"
         type="password"
         value={form.values.senha}
-        error={form.errors.senha}
-        isTouched={form.touchedFields.senha}
         onChange={form.handleChange}
+        isTouched={form.touchedFields.senha}
+        error={form.errors.senha}
         onBlur={form.handleBlur}
       />
 
@@ -87,7 +87,7 @@ export default function LoginForm({ onSubmit }) {
 }
 
 LoginForm.defaultProps = {
-  onSubmit: () => {},
+  onSubmit: null,
 };
 
 LoginForm.propTypes = {
